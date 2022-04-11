@@ -6,9 +6,11 @@ package airline.reservation.system;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.TextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -77,5 +79,4 @@ public class controller {
         this.closeButton.setBackground(new Color(51,51,51));
         this.closeLabel.setForeground(new Color(255,255,255));
     }
-    
 }

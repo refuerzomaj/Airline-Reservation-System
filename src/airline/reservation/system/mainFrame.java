@@ -20,6 +20,7 @@ public final class mainFrame extends javax.swing.JFrame {
     private controller controll;
     private homePanel hp;
     private flight f;
+    private account a;
     private boolean mouseEntered = false;
     public mainFrame() {
         initComponents();
@@ -83,11 +84,10 @@ public final class mainFrame extends javax.swing.JFrame {
             currentPanelOff();
             newPanel(f);
         }
-        else if(button == customerButton){
-            
-        }
-        else if(button == logoutButton){
-            
+        else if(button == accountButton){
+            a = new account();
+            currentPanelOff();
+            newPanel(a);
         }
     }
     
@@ -104,15 +104,13 @@ public final class mainFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         closeButton = new javax.swing.JPanel();
         closeLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
         homeButton = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        homeLabel = new javax.swing.JLabel();
         flightButton = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        customerButton = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        logoutButton = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        flightLabel = new javax.swing.JLabel();
+        accountButton = new javax.swing.JPanel();
+        accountLabel = new javax.swing.JLabel();
         board = new javax.swing.JPanel();
 
         setUndecorated(true);
@@ -154,12 +152,12 @@ public final class mainFrame extends javax.swing.JFrame {
 
         jPanel2.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 0, -1, 38));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Airline Reservation System");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 205, 38));
+        titleLabel.setBackground(new java.awt.Color(255, 255, 255));
+        titleLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 255, 255));
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("Airline Reservation System");
+        jPanel2.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 205, 38));
 
         homeButton.setBackground(new java.awt.Color(51, 51, 51));
         homeButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,23 +172,23 @@ public final class mainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Home");
+        homeLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        homeLabel.setForeground(new java.awt.Color(204, 204, 204));
+        homeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        homeLabel.setText("Home");
 
         javax.swing.GroupLayout homeButtonLayout = new javax.swing.GroupLayout(homeButton);
         homeButton.setLayout(homeButtonLayout);
         homeButtonLayout.setHorizontalGroup(
             homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(homeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
         homeButtonLayout.setVerticalGroup(
             homeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(homeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel2.add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 0, 60, 38));
+        jPanel2.add(homeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 0, 50, 38));
 
         flightButton.setBackground(new java.awt.Color(51, 51, 51));
         flightButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,98 +203,67 @@ public final class mainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Flights");
+        flightLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        flightLabel.setForeground(new java.awt.Color(204, 204, 204));
+        flightLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        flightLabel.setText("Flights");
 
         javax.swing.GroupLayout flightButtonLayout = new javax.swing.GroupLayout(flightButton);
         flightButton.setLayout(flightButtonLayout);
         flightButtonLayout.setHorizontalGroup(
             flightButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(flightButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(flightLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
         flightButtonLayout.setVerticalGroup(
             flightButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+            .addComponent(flightLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
         );
 
-        jPanel2.add(flightButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 0, 60, -1));
+        jPanel2.add(flightButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 0, 60, -1));
 
-        customerButton.setBackground(new java.awt.Color(51, 51, 51));
-        customerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        accountButton.setBackground(new java.awt.Color(51, 51, 51));
+        accountButton.setPreferredSize(new java.awt.Dimension(59, 38));
+        accountButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                customerButtonMouseClicked(evt);
+                accountButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                customerButtonMouseEntered(evt);
+                accountButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                customerButtonMouseExited(evt);
+                accountButtonMouseExited(evt);
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Customers");
+        accountLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        accountLabel.setForeground(new java.awt.Color(204, 204, 204));
+        accountLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        accountLabel.setText("Account");
 
-        javax.swing.GroupLayout customerButtonLayout = new javax.swing.GroupLayout(customerButton);
-        customerButton.setLayout(customerButtonLayout);
-        customerButtonLayout.setHorizontalGroup(
-            customerButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout accountButtonLayout = new javax.swing.GroupLayout(accountButton);
+        accountButton.setLayout(accountButtonLayout);
+        accountButtonLayout.setHorizontalGroup(
+            accountButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(accountButtonLayout.createSequentialGroup()
+                .addComponent(accountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
-        customerButtonLayout.setVerticalGroup(
-            customerButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(customerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 70, -1));
-
-        logoutButton.setBackground(new java.awt.Color(51, 51, 51));
-        logoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutButtonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutButtonMouseExited(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Logout");
-
-        javax.swing.GroupLayout logoutButtonLayout = new javax.swing.GroupLayout(logoutButton);
-        logoutButton.setLayout(logoutButtonLayout);
-        logoutButtonLayout.setHorizontalGroup(
-            logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-        logoutButtonLayout.setVerticalGroup(
-            logoutButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+        accountButtonLayout.setVerticalGroup(
+            accountButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(accountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
         );
 
-        jPanel2.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 50, -1));
+        jPanel2.add(accountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 60, -1));
 
         javax.swing.GroupLayout boardLayout = new javax.swing.GroupLayout(board);
         board.setLayout(boardLayout);
         boardLayout.setHorizontalGroup(
             boardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 904, Short.MAX_VALUE)
+            .addGap(0, 907, Short.MAX_VALUE)
         );
         boardLayout.setVerticalGroup(
             boardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -304,18 +271,18 @@ public final class mainFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -341,16 +308,6 @@ public final class mainFrame extends javax.swing.JFrame {
         mouseEntered = false;
         setMenuBar(flightButton);
     }//GEN-LAST:event_flightButtonMouseExited
-
-    private void customerButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerButtonMouseEntered
-        mouseEntered = true;
-        setMenuBar(customerButton);
-    }//GEN-LAST:event_customerButtonMouseEntered
-
-    private void customerButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerButtonMouseExited
-        mouseEntered = false;
-        setMenuBar(customerButton);
-    }//GEN-LAST:event_customerButtonMouseExited
 
     private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
         this.setVisible(false);
@@ -382,23 +339,19 @@ public final class mainFrame extends javax.swing.JFrame {
         setMenuClick(flightButton);
     }//GEN-LAST:event_flightButtonMouseClicked
 
-    private void customerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerButtonMouseClicked
-        setMenuClick(customerButton);
-    }//GEN-LAST:event_customerButtonMouseClicked
-
-    private void logoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseClicked
-        setMenuClick(logoutButton);
-    }//GEN-LAST:event_logoutButtonMouseClicked
-
-    private void logoutButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseEntered
-        mouseEntered = true;
-        setMenuBar(logoutButton);
-    }//GEN-LAST:event_logoutButtonMouseEntered
-
-    private void logoutButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseExited
+    private void accountButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountButtonMouseExited
         mouseEntered = false;
-        setMenuBar(logoutButton);
-    }//GEN-LAST:event_logoutButtonMouseExited
+        setMenuBar(accountButton);
+    }//GEN-LAST:event_accountButtonMouseExited
+
+    private void accountButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountButtonMouseEntered
+        mouseEntered = true;
+        setMenuBar(accountButton);
+    }//GEN-LAST:event_accountButtonMouseEntered
+
+    private void accountButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountButtonMouseClicked
+        setMenuClick(accountButton);
+    }//GEN-LAST:event_accountButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -437,23 +390,17 @@ public final class mainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel accountButton;
+    private javax.swing.JLabel accountLabel;
     private javax.swing.JPanel board;
     private javax.swing.JPanel closeButton;
     private javax.swing.JLabel closeLabel;
-    private javax.swing.JPanel customerButton;
     private javax.swing.JPanel flightButton;
+    private javax.swing.JLabel flightLabel;
     private javax.swing.JPanel homeButton;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel homeLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JPanel logoutButton;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
