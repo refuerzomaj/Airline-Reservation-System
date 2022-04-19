@@ -4,93 +4,19 @@
  */
 package airline.reservation.system;
 
-import java.awt.Color;
-import java.awt.Frame;
-import javax.swing.JPanel;
-
 /**
  *
  * @author 63927
  */
-public final class mainFrame extends javax.swing.JFrame {
+public class employer extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFrame
+     * Creates new form employer
      */
-    private controller controll;
-    private homePanel hp;
-    private flight f;
-    private account a;
-    private boolean mouseEntered = false;
-    public mainFrame() {
+    public employer() {
         initComponents();
-        frameLocation();
-        defaultPanel();
-    }
-    
-    public void frameLocation(){
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
     }
 
-    public void defaultPanel(){
-        hp = new homePanel();
-        controll = new controller(hp, homeButton, board, closeButton, closeLabel);
-        controll.addPanel();
-        controll.setActiveButton();
-        controll.buttonMouseEntered();
-    }
-    
-    public void setMenuBar(JPanel panel){
-        if(controll.getActiveButton()!= panel){
-            controll.setButton(panel);
-            if(mouseEntered == true){    
-                controll.buttonMouseEntered();
-            }
-            else{
-                controll.buttonMouseExited();
-            }
-        }
-    }
-    
-    public void newPanel(JPanel panel){
-        controll.setPanel(panel);
-        controll.addPanel();
-    }
-    
-    public void currentPanelOff(){
-        controll.panelSetNotVisible();
-    }
-    
-    public void setMenuClick(JPanel panel){
-        if(controll.getActiveButton()!= panel){
-            controll.setButton(controll.getActiveButton());
-            controll.buttonMouseExited();
-            controll.setButton(panel);
-            controll.buttonMouseEntered();
-            controll.setActiveButton();
-            setPanel(panel);
-        }
-    }
-    
-    public void setPanel(JPanel button){
-        if(button == homeButton){
-            hp = new homePanel();
-            currentPanelOff();
-            newPanel(hp);
-        }
-        else if(button == flightButton){
-            f = new flight();
-            currentPanelOff();
-            newPanel(f);
-        }
-        else if(button == accountButton){
-            a = new account();
-            currentPanelOff();
-            newPanel(a);
-        }
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,7 +40,7 @@ public final class mainFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         board = new javax.swing.JPanel();
 
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -276,7 +202,7 @@ public final class mainFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,7 +214,7 @@ public final class mainFrame extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -304,16 +230,6 @@ public final class mainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void flightButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flightButtonMouseEntered
-        mouseEntered = true;
-        setMenuBar(flightButton);
-    }//GEN-LAST:event_flightButtonMouseEntered
-
-    private void flightButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flightButtonMouseExited
-        mouseEntered = false;
-        setMenuBar(flightButton);
-    }//GEN-LAST:event_flightButtonMouseExited
 
     private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
         this.setVisible(false);
@@ -345,19 +261,29 @@ public final class mainFrame extends javax.swing.JFrame {
         setMenuClick(flightButton);
     }//GEN-LAST:event_flightButtonMouseClicked
 
-    private void accountButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountButtonMouseExited
+    private void flightButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flightButtonMouseEntered
+        mouseEntered = true;
+        setMenuBar(flightButton);
+    }//GEN-LAST:event_flightButtonMouseEntered
+
+    private void flightButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flightButtonMouseExited
         mouseEntered = false;
-        setMenuBar(accountButton);
-    }//GEN-LAST:event_accountButtonMouseExited
+        setMenuBar(flightButton);
+    }//GEN-LAST:event_flightButtonMouseExited
+
+    private void accountButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountButtonMouseClicked
+        setMenuClick(accountButton);
+    }//GEN-LAST:event_accountButtonMouseClicked
 
     private void accountButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountButtonMouseEntered
         mouseEntered = true;
         setMenuBar(accountButton);
     }//GEN-LAST:event_accountButtonMouseEntered
 
-    private void accountButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountButtonMouseClicked
-        setMenuClick(accountButton);
-    }//GEN-LAST:event_accountButtonMouseClicked
+    private void accountButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountButtonMouseExited
+        mouseEntered = false;
+        setMenuBar(accountButton);
+    }//GEN-LAST:event_accountButtonMouseExited
 
     /**
      * @param args the command line arguments
@@ -376,21 +302,20 @@ public final class mainFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(employer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(employer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(employer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(employer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mainFrame().setVisible(true);
+                new employer().setVisible(true);
             }
         });
     }

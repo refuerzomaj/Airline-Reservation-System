@@ -34,25 +34,30 @@ public class account_class {
     }
     
     public void setColorPlaceholder(){
-        textField.setForeground(new Color(204,204,204));
+        textField.setForeground(new Color(153,153,153));
     }
     
     public void setColorText(){
-        textField.setForeground(new Color(0,0,0));
+        textField.setForeground(new Color(255,255,255));
     }
     
     public void setFieldClear(){
         textField.setText("");
     }
-    
-    public void getFieldValue(){
+    public String getPlaceholder(){
         placeholder = "Enter "+name;
+        return placeholder;
+    }
+    public void setPlaceholder(){
+        textField.setText(getPlaceholder());
+        setColorPlaceholder();
+    }
+    public void getFieldValue(){
         if("".equals(textField.getText())){
-            textField.setText(placeholder);
-            setColorPlaceholder();
+            setPlaceholder();
         }
-        else if(placeholder.equals(textField.getText())){
-            textField.setText("");
+        else if(getPlaceholder().equals(textField.getText())){
+            setFieldClear();
             setColorText();
         }
     }
